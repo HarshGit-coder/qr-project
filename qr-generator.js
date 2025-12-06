@@ -25,7 +25,8 @@ systems.forEach(id => {
   container.appendChild(canvas);
 
   // URL pointing to the system detail page
-  const url = `system.html?id=${id}`;
+  const url = `https://HarshGit-coder.github.io/qr-project/system.html?id=${id}`;
+
 
   // Generate the QR code
   QRCode.toCanvas(canvas, url, { 
