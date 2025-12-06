@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>System Details</h2>
+    <div id="system-details">
+      Loading...
+    </div>
+  </div>
+
+  <script>
+    // Helper to get ?id=SYS001 from URL
+    function getSystemIdFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id'); // e.g., "SYS001"
+    }
+
+    async function loadSystemData() {
+      const systemId = getSystemIdFromUrl();
+      if (!systemId) {
+        document.getElementById('system-details').innerHTML = "No system ID provided in URL.";
+        return;
+      }
+
+      try {
+        // Load JSON data
+        const response = await fetch('data.json');
+        const data = await response.json();
+
+        // Find the system by ID
+        const system = data.find(item => item.SystemID === systemId);
+
+        if (!system) {
+          document.getElementById('system-details').innerHTML = "System not found!";
+          return;
+        }
+
+        // Display system details
+        const detailsHtml = `
+          <table>
+            <tr><th>System ID</th><td>${system.SystemID}</td></tr>
+            <tr><th>Model No</th><td>${system.ModelNo}</td></tr>
+            <tr><th>Purchase Date</th><td>${system.PurchaseDate}</td></tr>
+            <tr><th>Serial No</th><td>${system.SerialNo}</td></tr>
+            <tr><th>Location</th><td>${system.Location}</td></tr>
+            <tr><th>Status</th><td>${system.Status}</td></tr>
+            <tr><th>User Name</th><td>${system.UserName}</td></tr>
+            <tr><th>Department</th><td>${system.Department}</td></tr>
+            <tr><th>Vendor</th><td>${system.Vendor}</td></tr>
+            <tr><th>Warranty Expiry</th><td>${system.WarrantyExpiry}</td></tr>
+          </table>
+        `;
+        document.getElementById('system-details').innerHTML = detailsHtml;
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('system-details').innerHTML = "Error loading system data.";
+      }
+    }
+
+    loadSystemData();
+  </script>
+</body>
+</html>
