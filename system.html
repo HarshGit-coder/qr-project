@@ -47,7 +47,7 @@
           // Display system details
           const detailsHtml = `
   <table>
-    <tr><th>Equipment ID</th><td>${system.id}</td></tr>
+    <tr><th>Equipment ID</th><td>${system.sl_no}</td></tr>
     <tr><th>Make & Model</th><td>${system.make_model}</td></tr>
     <tr><th>Year of Mfg</th><td>${system.year_of_manufacturing}</td></tr>
     <tr><th>Third Party Agency</th><td>${system.third_party_inspection_agency}</td></tr>
@@ -60,6 +60,7 @@
     <tr><th>Condition</th><td>${system.physical_condition}</td></tr>
   </table>
 `;
+
 
           document.getElementById("system-details").innerHTML = detailsHtml;
         } catch (err) {

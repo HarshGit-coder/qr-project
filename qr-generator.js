@@ -1,15 +1,7 @@
 // List all your system IDs (you can add all 20 IDs here)
 // List all your equipment IDs (must match the "id" field in data.json)
 // List all your equipment IDs (must match the "id" field in data.json)
-const systems = [
-  "EQP001",
-  "EQP002",
-  "EQP003",
-  "EQP004",
-  "EQP005",
-  "EQP006",
-  "EQP007"
-];
+const systems = ["1", "2", "3", "4", "5", "6", "7"];
 
 
 
