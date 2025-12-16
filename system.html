@@ -36,7 +36,8 @@
 
           // Find the system by ID
           // Find the equipment by ID instead of "System ID"
-          const system = data.find((item) => item.id === systemId);
+          const system = data.find((item) => String(item.sl_no) === systemId);
+
 
           if (!system) {
             document.getElementById("system-details").innerHTML =
