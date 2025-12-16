@@ -3,18 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Code for Excel</title>
+  <title>Lifting Equipment QR</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Scan QR</h2>
-    <canvas id="qrcode"></canvas>
+
+  <div id="content">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1 class="main-title">LIFTING EQUIPMENT DETAILS</h1>
+      <h3 class="sub-title">
+        Scan the QR as per the Excel serial no. wise
+      </h3>
+      <button id="downloadPdf">Download PDF</button>
+    </div>
+
+    <!-- QR GRID -->
+    <div class="container">
+      <!-- QR boxes injected by JS -->
+    </div>
+
   </div>
 
-  <!-- Include QRCode library -->
+  <!-- QR Code library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <!-- Your custom JS -->
+
+  <!-- Your JS -->
   <script src="qr-generator.js"></script>
+
+  <!-- PDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    document.getElementById("downloadPdf").addEventListener("click", () => {
+      const btn = document.getElementById("downloadPdf");
+      btn.style.display = "none";
+
+      html2pdf().from(document.getElementById("content")).set({
+        filename: "Lifting-Equipment-QR.pdf",
+        margin: 10,
+        html2canvas: { scale: 2 },
+        jsPDF: { format: "a4", orientation: "portrait" }
+      }).save().then(() => {
+        btn.style.display = "inline-block";
+      });
+    });
+  </script>
+
 </body>
+
 </html>

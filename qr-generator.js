@@ -1,38 +1,31 @@
-// List all your system IDs (you can add all 20 IDs here)
-// List all your equipment IDs (must match the "id" field in data.json)
-// List all your equipment IDs (must match the "id" field in data.json)
 const systems = ["1", "2", "3", "4", "5", "6", "7"];
 
-
-
-// Select the container where QR codes will appear
+// Select the container
 const container = document.querySelector('.container');
 
-// Generate a QR code for each system
 systems.forEach(id => {
-  // Create a canvas for each QR code
-  const canvas = document.createElement('canvas');
-  
-  // Optional: Add a label above each QR
+
+  // 🔹 Wrapper for ONE QR (important for PDF)
+  const qrBox = document.createElement('div');
+  qrBox.className = 'qr-box';
+
+  // Label
   const label = document.createElement('p');
-  label.textContent = id;
-  label.style.fontWeight = 'bold';
-  label.style.marginTop = '10px';
-  label.style.marginBottom = '5px';
-  container.appendChild(label);
-  
-  container.appendChild(canvas);
+  label.textContent = `Equipment ID : ${id}`;
+  label.className = 'qr-label';
 
-  // URL pointing to the system detail page
-  const url = `https://HarshGit-coder.github.io/qr-project/system.html?id=${id}`;
+  // Canvas
+  const canvas = document.createElement('canvas');
 
+  qrBox.appendChild(label);
+  qrBox.appendChild(canvas);
+  container.appendChild(qrBox);
 
-  // Generate the QR code
-  QRCode.toCanvas(canvas, url, { 
-    width: 200,
-    color: { dark: '#000', light: '#fff' }
-  }, (error) => {
-    if (error) console.error(`Error generating QR for ${id}:`, error);
-    else console.log(`QR for ${id} generated`);
+  // URL
+  const url = `https://harshgit-coder.github.io/qr-project/system.html?id=${id}`;
+
+  // Generate QR
+  QRCode.toCanvas(canvas, url, { width: 200 }, (error) => {
+    if (error) console.error(`QR error for ${id}`, error);
   });
 });
