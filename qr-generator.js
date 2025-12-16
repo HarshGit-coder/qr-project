@@ -1,10 +1,17 @@
 // List all your system IDs (you can add all 20 IDs here)
+// List all your equipment IDs (must match the "id" field in data.json)
+// List all your equipment IDs (must match the "id" field in data.json)
 const systems = [
-  "SYS001", "SYS002", "SYS003", "SYS004", "SYS005",
-  "SYS006", "SYS007", "SYS008", "SYS009", "SYS010",
-  "SYS011", "SYS012", "SYS013", "SYS014", "SYS015",
-  "SYS016", "SYS017", "SYS018", "SYS019", "SYS020"
+  "EQP001",
+  "EQP002",
+  "EQP003",
+  "EQP004",
+  "EQP005",
+  "EQP006",
+  "EQP007"
 ];
+
+
 
 // Select the container where QR codes will appear
 const container = document.querySelector('.container');

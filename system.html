@@ -29,11 +29,14 @@
 
         try {
           // Load JSON data
-          const response = await fetch("https://harshgit-coder.github.io/qr-project/data.json");
+          const response = await fetch(
+            "https://harshgit-coder.github.io/qr-project/data.json"
+          );
           const data = await response.json();
 
           // Find the system by ID
-          const system = data.find((item) => item["System ID"] === systemId);
+          // Find the equipment by ID instead of "System ID"
+          const system = data.find((item) => item.id === systemId);
 
           if (!system) {
             document.getElementById("system-details").innerHTML =
@@ -44,18 +47,20 @@
           // Display system details
           const detailsHtml = `
   <table>
-    <tr><th>System ID</th><td>${system["System ID"]}</td></tr>
-    <tr><th>Model No</th><td>${system["Model No"]}</td></tr>
-    <tr><th>Purchase Date</th><td>${system["Purchase Date"]}</td></tr>
-    <tr><th>Serial No</th><td>${system["Serial No"]}</td></tr>
-    <tr><th>Location</th><td>${system["Location"]}</td></tr>
-    <tr><th>Status</th><td>${system["Status"]}</td></tr>
-    <tr><th>User Name</th><td>${system["User Name"]}</td></tr>
-    <tr><th>Department</th><td>${system["Department"]}</td></tr>
-    <tr><th>Vendor</th><td>${system["Vendor"]}</td></tr>
-    <tr><th>Warranty Expiry</th><td>${system["Warranty Expiry"]}</td></tr>
+    <tr><th>Equipment ID</th><td>${system.id}</td></tr>
+    <tr><th>Make & Model</th><td>${system.make_model}</td></tr>
+    <tr><th>Year of Mfg</th><td>${system.year_of_manufacturing}</td></tr>
+    <tr><th>Third Party Agency</th><td>${system.third_party_inspection_agency}</td></tr>
+    <tr><th>TPI Validity</th><td>${system.tpi_validity}</td></tr>
+    <tr><th>Inspection Frequency</th><td>${system.internal_inspection_frequency}</td></tr>
+    <tr><th>Safe Working Load</th><td>${system.safe_working_load}</td></tr>
+    <tr><th>Location</th><td>${system.location_city}</td></tr>
+    <tr><th>Project Name</th><td>${system.project_name}</td></tr>
+    <tr><th>Ownership</th><td>${system.ownership}</td></tr>
+    <tr><th>Condition</th><td>${system.physical_condition}</td></tr>
   </table>
 `;
+
           document.getElementById("system-details").innerHTML = detailsHtml;
         } catch (err) {
           console.error(err);
