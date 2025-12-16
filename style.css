@@ -95,3 +95,100 @@ button:hover {
 #system-details tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+#content {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.sub-title {
+  margin: 8px 0 14px;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* QR GRID */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* QR CARD */
+.qr-box {
+  text-align: center;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.qr-label {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* PRINT / PDF */
+@media print {
+  body {
+    background: #fff;
+  }
+}
+
+
+/* SYSTEM DETAILS TABLE */
+#system-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#system-details th,
+#system-details td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#system-details th {
+  background-color: #007bff;
+  color: white;
+  width: 35%;
+}
+
+#system-details tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
