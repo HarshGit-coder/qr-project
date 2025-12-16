@@ -68,3 +68,30 @@ button:hover {
     background: #fff;
   }
 }
+
+
+/* SYSTEM DETAILS TABLE */
+#system-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#system-details th,
+#system-details td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#system-details th {
+  background-color: #007bff;
+  color: white;
+  width: 35%;
+}
+
+#system-details tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
