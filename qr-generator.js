@@ -1,4 +1,4 @@
-const systems = ["1", "2", "3", "4", "5", "6", "7"];
+const systems = ["1", "2", "3", "4", "5", "6", "7", "8"];
 
 // Select the container
 const container = document.querySelector('.container');

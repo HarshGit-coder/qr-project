@@ -96,6 +96,20 @@
       "project_name": "Patto Plaza DLF Goa",
       "ownership": "Own",
       "physical_condition": "Working"
+    },
+    {
+      "sl_no": 8,
+      "category": "Lifting Equipment",
+      "make_model": "CMAC/MFH/25-26/048",
+      "year_of_manufacturing": "2025",
+      "third_party_inspection_agency": "Annapurna Agency",
+      "tpi_validity": "2026-04-06 ",
+      "internal_inspection_frequency": "Monthly",
+      "safe_working_load": "800KG",
+      "location_city": "GOA",
+      "project_name": "Patto Plaza DLF Goa",
+      "ownership": "Own",
+      "physical_condition": "Working"
     }
   ]
   
